@@ -1,9 +1,16 @@
+astroid==3.2.2
 certifi==2024.2.2
 charset-normalizer==3.3.2
+dill==0.3.8
 idna==3.7
 iniconfig==2.0.0
+isort==5.13.2
+mccabe==0.7.0
 packaging==24.0
+platformdirs==4.2.2
 pluggy==1.5.0
+pylint==3.2.2
 pytest==8.2.1
 requests==2.32.3
+tomlkit==0.12.5
 urllib3==2.2.1
