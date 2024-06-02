@@ -21,7 +21,7 @@ def download_contents_file(architecture):
 
 def parse_contents(contents):
     """
-    Parse the Contents file and count the number of files associated with each package.
+    Parse the contents of the index file and count the number of files associated with each package.
     """
     package_file_count = defaultdict(int)
 
@@ -48,7 +48,7 @@ def parse_contents(contents):
     # values are counts of files associated with those packages
     return package_file_count
 
-def get_top_packages(package_file_count):
+def get_top_package_occurence(package_file_count):
     """
     Get the top N packages with the most files.
     """
@@ -56,6 +56,8 @@ def get_top_packages(package_file_count):
     # Convert dictionary into a list of tuples and sort this list based
     # on the second element of each tuple, representing file count
     sorted_packages = sorted(package_file_count.items(), key=lambda x: x[1], reverse=True)
+
+    # Return only the top N occuring packages and their file count
     return sorted_packages[:TOP_N_PACKAGES]
 
 def main():
@@ -66,7 +68,7 @@ def main():
     try:
         contents = download_contents_file(args.architecture)
         package_file_count = parse_contents(contents)
-        top_packages = get_top_packages(package_file_count)
+        top_packages = get_top_package_occurence(package_file_count)
 
         for package, file_count in top_packages:
             print(f"{package}\t{file_count}")

@@ -1,6 +1,6 @@
 import pytest
 from collections import defaultdict
-from package_statistics import parse_contents, get_top_packages
+from package_statistics import parse_contents, get_top_package_occurence
 
 @pytest.fixture
 def sample_contents():
@@ -27,6 +27,6 @@ def test_parse_contents(sample_contents, expected_statistics):
 
 
 def test_get_top_packages(expected_statistics):
-    result = get_top_packages(expected_statistics)
+    result = get_top_package_occurence(expected_statistics)
     sorted_statistics = [('packageB', 3),('packageA', 2),('packageC', 1)]
     assert result == sorted_statistics
